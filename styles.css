@@ -1,0 +1,123 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+}
+
+.logo {
+  height: 70px;
+  width: 70px;
+  margin-left: 20px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-right: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: red;
+}
+
+.kebab-menu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.kebab-menu span {
+  background-color: white;
+  height: 3px;
+  width: 25px;
+  margin: 3px 0;
+  transition: all 0.3s;
+}
+
+/* Menú pantalla completa */
+.full-screen-menu {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* Ocultar visualmente */
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none; /* Evitar clics cuando está oculto */
+}
+
+.full-screen-menu.show {
+  display: flex;
+  opacity: 1;
+  pointer-events: auto; /* Activar clics cuando está visible */
+}
+
+.full-screen-menu .menu-links {
+  list-style: none;
+  text-align: center;
+}
+
+.full-screen-menu .menu-links li {
+  margin: 1rem 0;
+}
+
+.full-screen-menu .menu-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.full-screen-menu .menu-links a:hover {
+  color: #00bcd4;
+}
+
+.full-screen-menu .close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .kebab-menu {
+    display: flex;
+  }
+}
