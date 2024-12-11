@@ -112,3 +112,23 @@ sliderContainer.addEventListener('touchend', () => {
 // Inicializa el slider
 showSlide(currentSlide);
 startAutoSlide();
+
+// Selecciona todas las diapositivas
+const slids = document.querySelectorAll('.slide');
+
+// Función para cambiar las imágenes según el tamaño de la pantalla
+function updateSlides() {
+  if (window.innerWidth <= 768) {
+    slides[0].style.backgroundImage = "url('images/banner3.jpeg')";
+    slides[1].style.backgroundImage = "url('images/banner3.jpeg')";
+    slides[2].style.backgroundImage = "url('images/banner3.jpeg')";
+  } else {
+    slides[0].style.backgroundImage = "url('images/banner1.jpeg')";
+    slides[1].style.backgroundImage = "url('images/banner2.jpeg')";
+    slides[2].style.backgroundImage = "url('images/banner3.jpeg')";
+  }
+}
+
+// Llama a la función en carga y al cambiar el tamaño de la ventana
+window.addEventListener('resize', updateSlides);
+updateSlides();
