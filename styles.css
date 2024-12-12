@@ -110,7 +110,7 @@ a:hover .cart-logo {
   width: 100%;
   height: 100vh;
   background-color: black;
-  z-index: 10;
+  z-index: 9999;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -161,7 +161,7 @@ a:hover .cart-logo {
   background-color: black;
   color: white;
   padding: 10px 20px;
-  border: none;
+  border: 2px solid white;
   border-radius: 20px;
   margin-right: 20px;
 }
@@ -596,12 +596,12 @@ a:hover .cart-logo {
   margin-top: 1vh;
 }
 
-/* Cart Sidebar */
+/* Estilo del carrito de compras */
 .cart-sidebar {
   position: fixed;
-  right: -300px;
+  right: -400px;
   top: 0;
-  width: 300px;
+  width: 400px;
   height: 100%;
   background-color: white;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
@@ -609,41 +609,17 @@ a:hover .cart-logo {
   transition: right 0.3s ease;
   padding: 20px;
   overflow-y: auto;
+  border-left: 2px solid #ddd; /* Añade un borde para mayor estética */
 }
 
 .cart-sidebar.open {
   right: 0;
 }
 
-body.overlay .cart-sidebar.open {
-  right: 0;
-}
-
-body.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.7); /* Añade un fondo semi-transparente */
-}
-
-.cart-sidebar .close-cart-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 1.5rem;
-  color: black;
-  cursor: pointer;
-  z-index: 9999; /* Asegura que esté por encima del contenido */
-  background: none;
-  border: none;
-  display: block; /* Siempre visible */
-}
-
 .cart-sidebar h2 {
   margin-top: 0;
+  font-size: 1.5rem;
+  color: red;
 }
 
 .cart-sidebar ul {
@@ -653,25 +629,44 @@ body.overlay {
 
 .cart-sidebar ul li {
   margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
 }
+
+.cart-sidebar ul li:last-child {
+  border-bottom: none;
+}
+
+.cart-sidebar .close-cart-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  color: red;
+  cursor: pointer;
+  z-index: 9999;
+  background-color: black;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.cart-sidebar .close-cart-btn:hover {
+  background-color: #333;
+}
+
+.cart-sidebar .total {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: right;
+}
+
 
 /* Estilo del modal de Login */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0.3s, opacity 0.3s;
-}
-
 /* Estilo general del modal */
 .modal {
   position: fixed; /* Fijar al viewport */
@@ -698,28 +693,83 @@ body.overlay {
 /* Contenido del Modal */
 .modal-content {
   background: white;
-  padding: 20px;
-  border-radius: 10px;
-  width: 300px;
+  padding-inline: 10vw; /* Reduce el espacio horizontal */
+  padding-block: 10vh; /* Reduce el espacio vertical */
+  border-radius: 15px; /* Bordes más redondeados */
+  width: 60vw; /* Mayor ancho del formulario */
+  max-width: 800px; /* Limita el tamaño en pantallas grandes */
   position: relative; /* Dentro del modal */
   text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para mayor estetica */
   z-index: 10000; /* Más alto que el fondo del modal */
+}
+
+.form-logo {
+  width: 80px;
+  height: auto;
+  margin: 0 auto 20px; /* Centrar el logo y darle espacio inferior */
 }
 
 /* Botón de cerrar */
 .close-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 1.5rem;
-  color: black;
+  top: 15px;
+  right: 15px;
+  font-size: 1.8rem;
+  color: #555; /* Color más suave */
   cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-button:hover {
+  color: red; /* Cambio de color al pasar el cursor */
 }
 
 /* Mensaje de error */
 #error-message {
   color: red;
-  font-size: 0.9rem;
-  margin-top: 10px;
+  font-size: 1rem; /* Texto ligeramente más grande */
+  margin-top: 15px;
 }
 
+/* Estilos adicionales para el formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Espaciado entre elementos */
+}
+
+form input {
+  width: 80%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+form input:focus {
+  border-color: #555; /* Cambiar color al enfoque */
+}
+
+form button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+p {
+  font-size: 1rem;
+  color: #333;
+}

@@ -266,87 +266,167 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const loginModal = document.getElementById('login-modal');
-  const openLoginModal = document.getElementById('open-login-modal');
-  const closeLoginModal = document.getElementById('close-login-modal');
-  const loginForm = document.getElementById('login-form');
-  const registerForm = document.getElementById('register-form');
-  const goToRegister = document.getElementById('go-to-register');
-  const goToLogin = document.getElementById('go-to-login');
-  const loginErrorMessage = document.getElementById('login-error-message');
-  const registerErrorMessage = document.getElementById('register-error-message');
+// JavaScript para gestionar el modal de login, el carrito y redirecciones
 
-  // Abrir el modal de login
-  openLoginModal.addEventListener('click', () => {
-    loginModal.classList.add('active');
+document.addEventListener("DOMContentLoaded", () => {
+  // Modal de Login
+  const loginModal = document.getElementById("login-modal");
+  const openLoginModal = document.getElementById("open-login-modal");
+  const closeLoginModal = document.getElementById("close-login-modal");
+
+  openLoginModal.addEventListener("click", () => {
+    loginModal.classList.add("active");
   });
 
-  // Cerrar el modal de login
-  closeLoginModal.addEventListener('click', () => {
-    loginModal.classList.remove('active');
+  closeLoginModal.addEventListener("click", () => {
+    loginModal.classList.remove("active");
   });
 
-  // Cambiar al formulario de registro
-  goToRegister.addEventListener('click', (event) => {
-    event.preventDefault();
-    loginForm.classList.add('hidden');
-    registerForm.classList.remove('hidden');
-  });
+  // Validación de formulario de registro
+  const registerForm = document.getElementById("register-form-element");
 
-  // Cambiar al formulario de login
-  goToLogin.addEventListener('click', (event) => {
-    event.preventDefault();
-    registerForm.classList.add('hidden');
-    loginForm.classList.remove('hidden');
-  });
+  registerForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const username = document.getElementById("register-username").value;
+    const password = document.getElementById("register-password").value;
 
-  // Función para guardar el usuario en localStorage
-  function saveUser(username, password) {
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    users.push({ username, password });
-    localStorage.setItem('users', JSON.stringify(users));
-  }
-
-  // Función para verificar las credenciales del usuario
-  function checkUser(username, password) {
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    return users.find(user => user.username === username && user.password === password);
-  }
-
-  // Lógica del formulario de login
-  document.getElementById('login-form-element').addEventListener('submit', (event) => {
-    event.preventDefault();
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    const user = checkUser(username, password);
-    if (user) {
-      alert('¡Inicio de sesión exitoso!');
-      loginModal.classList.remove('active');
-    } else {
-      loginErrorMessage.classList.remove('hidden');
-    }
-  });
-
-  // Lógica del formulario de registro
-  document.getElementById('register-form-element').addEventListener('submit', (event) => {
-    event.preventDefault();
-    const username = document.getElementById('register-username').value;
-    const password = document.getElementById('register-password').value;
-
-    // Verificar si el usuario ya existe
-    const existingUser = checkUser(username, password);
-    if (existingUser) {
-      registerErrorMessage.classList.remove('hidden');
+    if (!validarInput(username) || !validarInput(password)) {
+      mostrarErrorRegistro("Usuario y contraseña deben tener entre 8 y 16 caracteres.");
       return;
     }
 
-    saveUser(username, password);
-    alert('Cuenta creada exitosamente');
-    registerForm.classList.add('hidden');
-    loginForm.classList.remove('hidden');
+    // Lógica para registrar usuario
+    console.log("Registro exitoso");
+  });
+
+  function validarInput(input) {
+    return input.length >= 8 && input.length <= 16;
+  }
+
+  function mostrarErrorRegistro(mensaje) {
+    const errorMessage = document.getElementById("register-error-message");
+    errorMessage.textContent = mensaje;
+    errorMessage.classList.remove("hidden");
+  }
+
+  // Validación de formulario de login
+  const loginForm = document.getElementById("login-form-element");
+
+  loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    if (!validarInput(username) || !validarInput(password)) {
+      mostrarError("Usuario y contraseña deben tener entre 8 y 16 caracteres.");
+      return;
+    }
+
+    // Lógica para iniciar sesión
+    console.log("Inicio de sesión exitoso");
+  });
+
+  function validarInput(input) {
+    return input.length >= 8 && input.length <= 16;
+  }
+
+  function mostrarError(mensaje) {
+    const errorMessage = document.getElementById("login-error-message");
+    errorMessage.textContent = mensaje;
+    errorMessage.classList.remove("hidden");
+  }
+
+  // Carrito
+  const cartSidebar = document.getElementById("cart-sidebar");
+  const cartLink = document.getElementById("cart-link");
+  const closeCartBtn = document.getElementById("close-cart-btn");
+  const cartItems = document.getElementById("cart-items");
+  const cartEmptyMessage = document.getElementById("cart-empty");
+
+  cartLink.addEventListener("click", () => {
+    cartSidebar.classList.add("open");
+  });
+
+  closeCartBtn.addEventListener("click", () => {
+    cartSidebar.classList.remove("open");
+  });
+
+  document.body.addEventListener("click", (e) => {
+    if (e.target.classList.contains("btn-agregar-carrito")) {
+      const producto = e.target.closest(".tarjeta-producto").dataset.producto;
+      agregarAlCarrito(producto);
+    }
+
+    if (e.target.classList.contains("btn-eliminar")) {
+      const producto = e.target.dataset.producto;
+      eliminarDelCarrito(producto);
+    }
+  });
+
+  // Inicializar el carrito
+  let carrito = [];
+
+  // Función para agregar productos al carrito
+  function agregarAlCarrito(producto) {
+    carrito.push(producto);
+    renderizarCarrito(carrito);
+  }
+
+  // Función para eliminar productos del carrito
+  function eliminarDelCarrito(producto) {
+    const index = carrito.indexOf(producto);
+    if (index !== -1) {
+      carrito.splice(index, 1);
+    }
+    renderizarCarrito(carrito);
+  }
+
+  // Función para renderizar los productos en el carrito
+  function renderizarCarrito(carrito) {
+    const cartItems = document.getElementById('cart-items');
+    cartItems.innerHTML = ''; // Limpiar el contenido anterior
+    carrito.forEach((producto) => {
+      const li = document.createElement("li");
+      li.textContent = producto;
+      const eliminarBtn = document.createElement("button");
+      eliminarBtn.textContent = "Eliminar";
+      eliminarBtn.classList.add("btn-eliminar");
+      eliminarBtn.dataset.producto = producto;
+      eliminarBtn.addEventListener('click', () => {
+        eliminarDelCarrito(producto);
+      });
+      li.appendChild(eliminarBtn);
+      cartItems.appendChild(li);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const cartLogo = document.querySelector('.cart-logo');
+    const cartSidebar = document.querySelector('.cart-sidebar');
+    const closeCartBtn = document.querySelector('.close-cart-btn');
+
+    cartLogo.addEventListener('click', () => {
+      // Cierra cualquier carrito abierto antes de abrir uno nuevo
+      const openCartSidebar = document.querySelector('.cart-sidebar.open');
+      if (openCartSidebar && openCartSidebar !== cartSidebar) {
+        openCartSidebar.classList.remove('open');
+      }
+      cartSidebar.classList.add('open');
+      document.body.classList.add('overlay');
+    });
+
+    closeCartBtn.addEventListener('click', () => {
+      cartSidebar.classList.remove('open');
+      document.body.classList.remove('overlay');
+    });
+
+    // Agregar productos al carrito
+    document.querySelectorAll('.btn-agregar-carrito').forEach(button => {
+      button.addEventListener('click', (event) => {
+        const producto = event.target.dataset.producto;
+        agregarAlCarrito(producto);
+      });
+    });
   });
 });
-
 
