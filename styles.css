@@ -25,6 +25,59 @@ h2 {
   letter-spacing: 1.5px; /* Espaciado entre letras */
 }
 
+
+/* banner wiliams */
+/* Banner wiliams */
+.banner_williams {
+  background-image: url('images/fondo wiliams copy.jpg'); /* Imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  height: 700px; /* Ajusta la altura del banner */
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  display: flex; /* Usa flexbox para alinear los elementos */
+  align-items: center; /* Centra el contenido verticalmente */
+  justify-content: space-between; /* Coloca el texto a la izquierda y la imagen a la derecha */
+  padding: 0 20px; /* Agrega algo de espaciado horizontal */
+}
+
+.bannerWil-content {
+  display: flex;
+  width: 100%;
+  justify-content: space-between; /* Asegura que el texto esté a la izquierda y la imagen a la derecha */
+  align-items: center; /* Centra el contenido verticalmente */
+}
+
+.bannerWil-text {
+  color: #fff; /* Color del texto */
+  max-width: 50%; /* Limita el ancho del texto a la mitad del banner */
+  padding: 20px; /* Agrega algo de espacio alrededor del texto */
+  background: rgba(0, 0, 0, 0.5); /* Fondo oscuro para mejorar la visibilidad del texto */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+.bannerWil-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2.5rem; /* Tamaño del encabezado */
+  margin-bottom: 10px;
+}
+
+.pWili {
+  color: #a6aeb6;
+}
+
+@media (max-width: 768px) {
+  .bannerWil-content {
+    flex-direction: column; /* Cambia a columna en pantallas más pequeñas */
+    align-items: center; /* Centra el contenido horizontalmente */
+  }
+
+  .bannerWil-text {
+    max-width: 90%; /* Ajusta el ancho del texto para pantallas pequeñas */
+    margin-top: 20px; /* Da algo de espacio en la parte superior */
+  }
+}
+
+
 .navbar {
   margin-top: 30px;
   display: flex;
@@ -460,12 +513,9 @@ a:hover .cart-logo {
 
 /* Secciones */
 .secciones {
-  background-image: url('images/fondo wiliams.jpg'); /* Ruta de la imagen */
-  background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
-  background-position: center; /* Centra la imagen en la sección */
-  background-repeat: no-repeat; /* Evita que la imagen se repita */
-  height: 100vh; /* Asegura que la sección tenga al menos la altura de la ventana */
-  color: white; 
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background: linear-gradient(135deg,#1f4ef7,  #021761); /* Gradiente atractivo */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -479,7 +529,6 @@ a:hover .cart-logo {
   width: 400px;
   height: 700px;
   overflow: hidden;
-  border: 2px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Sombra inicial */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
@@ -563,7 +612,7 @@ a:hover .cart-logo {
   height: 10vh;
   overflow: hidden;
   z-index: 9998;
-  background: linear-gradient(135deg,#000000,  #ff2f00); /* Gradiente atractivo */
+  background: linear-gradient(135deg,#111111,  #1239c7); 
 }
 
 .carrusel-wrapper {
