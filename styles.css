@@ -144,6 +144,15 @@ a:hover .cart-logo {
   cursor: pointer;
 }
 
+.search {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  margin-right: 20px;
+}
+
 /* Responsivo */
 @media (max-width: 768px) {
   .nav-links {
@@ -166,28 +175,39 @@ a:hover .cart-logo {
   text-align: center; 
   margin-bottom: 40px; 
   font-size: 1.8rem; 
-} 
- 
-.productos-grid { 
-  display: grid; 
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ancho mínimo ligeramente aumentado */
-  gap: 30px; /* Más espacio entre tarjetas */
-} 
- 
-.tarjeta-producto { 
-  background: #fff; 
-  border: 1px solid #ddd; 
-  border-radius: 12px; 
-  overflow: hidden; 
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-  display: flex; 
-  flex-direction: column; 
-  transition: transform 0.3s ease; 
-} 
- 
-.tarjeta-producto:hover {
-  transform: scale(1.03);
 }
+ 
+.tarjeta-producto {
+  width: 20vw; /* Fija el ancho del producto */
+  height: 50vh; /* Fija el alto del producto */
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+
+.tarjeta-producto img {
+  width: 100%;
+  height: auto; /* Asegura que la imagen se ajuste al ancho del contenedor sin distorsionarse */
+  object-fit: cover;
+}
+
+.hidden {
+  display: none;
+}
+
+.productos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centra los productos */
+  gap: 50px; /* Espacio entre productos */
+}
+
  
 .tarjeta-producto img { 
   width: 100%; 
@@ -237,6 +257,63 @@ a:hover .cart-logo {
  
 .btn-agregar-carrito:hover { 
   background: #34495e; 
+}
+
+/* Carrito */
+.cart-sidebar {
+  position: fixed;
+  right: -300px;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background-color: white;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  transition: right 0.3s ease;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.cart-sidebar.open {
+  right: 0;
+}
+
+body.overlay .cart-sidebar.open {
+  right: 0;
+}
+
+body.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.7); /* Añade un fondo semi-transparente */
+}
+
+.cart-sidebar .close-cart-btn,
+.close-cart-sidebar-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.cart-sidebar h2 {
+  margin-top: 0;
+}
+
+.cart-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.cart-sidebar ul li {
+  margin-bottom: 10px;
 }
 
 /* Imagenes secundarias productos */
@@ -351,7 +428,7 @@ a:hover .cart-logo {
   color: #fff;
   padding: 10px 0;
   overflow: hidden;
-  z-index: 9999;
+  z-index: 9998;
 }
 
 .banner-wrapper {
@@ -456,4 +533,127 @@ a:hover .cart-logo {
 
 .tarjeta:hover {
   background-color: #e0e0e0;
+}
+
+/* Carrusel */
+.carrusel-container {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10vh;
+  overflow: hidden;
+  z-index: 9998;
+  background-color: orange;
+}
+
+.carrusel-wrapper {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee 25s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.carrusel-content {
+  display: inline-block;
+  width: 8vw;
+  height: 10vh;
+  background-position: center;
+  margin-right: 3vw;
+  cursor: pointer;
+}
+
+.carrusel-content img {
+  width: 6vw;
+  height: 8vh;
+  margin-top: 1vh;
+}
+
+/* Login */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px; /* Incrementa el padding para más espacio interno */
+  border-radius: 10px;
+  width: 400px; /* Incrementa el ancho del formulario */
+  max-width: 90%; /* Asegura que sea responsivo */
+  position: relative;
+  text-align: center;
+}
+
+.modal-content h2 {
+  font-size: 1.8rem; /* Tamaño de texto del título */
+  margin-bottom: 20px;
+}
+
+.modal-content form label {
+  display: block;
+  font-size: 1.2rem; /* Incrementa el tamaño del texto de las etiquetas */
+  margin-bottom: 10px;
+}
+
+.modal-content form input {
+  width: 100%; /* Asegura que los campos ocupen todo el ancho disponible */
+  padding: 12px; /* Incrementa el padding de los campos */
+  margin-bottom: 20px;
+  font-size: 1rem; /* Tamaño de texto más grande */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modal-content form button {
+  background-color: #2c3e50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem; /* Incrementa el tamaño del texto del botón */
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.modal-content form button:hover {
+  background-color: #34495e;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  color: black;
+  cursor: pointer;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.modal.active {
+  visibility: visible;
+  opacity: 1;
 }
