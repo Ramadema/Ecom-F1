@@ -7,6 +7,22 @@
 
 body {
   font-family: Arial, sans-serif;
+  width: 100vw;
+  height: 100vh;
+}
+
+h2 {
+  text-align: center; /* Centrar el texto */
+  font-family: 'Roboto', sans-serif; /* Fuente moderna */
+  font-size: 2rem; /* Tamaño del texto */
+  color: #ffffff; /* Color del texto */
+  background: linear-gradient(90deg, #5f5c5c, #000000); /* Fondo degradado */
+  padding: 15px 20px; /* Espaciado interno */
+  margin: 20px 0; /* Separación externa */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidad */
+  text-transform: uppercase; /* Convertir texto a mayúsculas */
+  letter-spacing: 1.5px; /* Espaciado entre letras */
 }
 
 .navbar {
@@ -444,6 +460,12 @@ a:hover .cart-logo {
 
 /* Secciones */
 .secciones {
+  background-image: url('images/fondo wiliams.jpg'); /* Ruta de la imagen */
+  background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
+  background-position: center; /* Centra la imagen en la sección */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  height: 100vh; /* Asegura que la sección tenga al menos la altura de la ventana */
+  color: white; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -452,14 +474,32 @@ a:hover .cart-logo {
 }
 
 .tarjeta {
+  position: relative; /* Para posicionar texto y pseudo-elementos */
   cursor: pointer;
   width: 400px;
-  height: 600px;
+  height: 700px;
   overflow: hidden;
   border: 2px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Sombra inicial */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+.tarjeta::before {
+  content: ''; /* Contenido vacío para la superposición negra */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Superposición negra con opacidad */
+  transition: opacity 0.3s ease; /* Transición suave */
+  opacity: 1; /* Opacidad inicial */
+  z-index: 1; /* Encima de la imagen pero detrás del texto */
+}
+
+.tarjeta:hover::before {
+  opacity: 0; /* La superposición desaparece al hacer hover */
 }
 
 .tarjeta:hover {
@@ -472,7 +512,29 @@ a:hover .cart-logo {
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
+  position: relative;
+  z-index: 0; /* Imagen debajo de la superposición */
 }
+
+.texto-tarjeta {
+  position: absolute;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centrar el texto */
+  color: #fff;
+  font-size: 45px;
+  font-weight: bold;
+  text-align: center;
+  z-index: 2; /* Encima de la superposición */
+  opacity: 1; /* Opacidad visible */
+  transition: opacity 0.3s ease; /* Transición suave */
+}
+
+.tarjeta:hover .texto-tarjeta {
+  opacity: 1; /* El texto permanece visible */
+}
+
 
 
 
@@ -501,20 +563,20 @@ a:hover .cart-logo {
   height: 10vh;
   overflow: hidden;
   z-index: 9998;
-  background-color: orange;
+  background: linear-gradient(135deg,#000000,  #ff2f00); /* Gradiente atractivo */
 }
 
 .carrusel-wrapper {
   display: flex;
   white-space: nowrap;
-  animation: marquee 25s linear infinite;
+  animation: marqueen 50s linear infinite;
 }
 
-@keyframes marquee {
-  0% {
+@keyframes marqueen {
+  100% {
     transform: translateX(100%);
   }
-  100% {
+  0% {
     transform: translateX(-100%);
   }
 }
