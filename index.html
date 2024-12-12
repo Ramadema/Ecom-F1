@@ -13,8 +13,12 @@
       <img class="logo" src="images/f1 logo.png" alt="f1">
     </div>
     <ul class="nav-links">
-      <li><a href="#home">Busqueda</a></li>
-      <li><a href="#about">Login</a></li>
+      <li>
+        <form>
+          <input id="search-bar" class="search" type="text" placeholder="Buscar...">
+        </form>
+      </li>
+      <li><a href="#" id="open-login-modal">Login</a></li>
       <li><a href="#services">Menú</a></li>
       <li><a href="#contact"><img class="cart-logo" src="images/Carrito.png" alt="Carrito"></a></li>
     </ul>
@@ -53,6 +57,21 @@
     </div>
   </div>
 
+  <div class="carrusel-container">
+    <div class="carrusel-wrapper">
+      <div class="carrusel-content"><img src="images/escuderias/Alfa Romeo.png" alt="alfa romeo" data-producto="Alfa Romeo"></div>
+      <div class="carrusel-content"><img src="images/escuderias/Alpha Tauri.png" alt="alpha tauri" data-producto="Alpha Tauri"></div>
+      <div class="carrusel-content"><img src="images/escuderias/Alpine.png" alt="alpine" data-producto="Alpine"></div>
+      <div class="carrusel-content"><img src="images/escuderias/Aston Martin.png" alt="aston martin" data-producto="Aston Martin"></div>
+      <div class="carrusel-content"><img src="images/escuderias/Ferrari.png" alt="ferrari" data-producto="Ferrari"></div>
+      <div class="carrusel-content"><img src="images/escuderias/Haas.png" alt="haas" data-producto="Haas"></div>
+      <div class="carrusel-content"><img src="images/escuderias/Mclaren.png" alt="mclaren" data-producto="Mclaren"></div>
+      <div class="carrusel-content"><img src="images/escuderias/Mercedes.png" alt="mercedes" data-producto="Mercedes"></div>
+      <div class="carrusel-content"><img src="images/escuderias/Red Bull.png" alt="red bull" data-producto="Red Bull"></div>
+      <div class="carrusel-content"><img src="images/escuderias/Williams.png" alt="williams" data-producto="Williams"></div>
+    </div>
+  </div>
+  
 
   <!-- Productos -->
   <section id="productos" class="productos">
@@ -133,10 +152,6 @@
       <h2>Poleras</h2>
     </div>
   </div>
-
-
-  
-
   
   <section id="productos" class="productos">
     <div class="productos-grid">
@@ -216,6 +231,42 @@
       <p>&copy; 2024 Tienda. Todos los derechos reservados.</p>
     </div>
   </footer>
+
+  <div id="login-modal" class="modal">
+    <div class="modal-content">
+      <span id="close-login-modal" class="close-button">&times;</span>
+
+      <!-- Formulario de Login -->
+      <div id="login-form" class="form-container active">
+        <h2>Iniciar Sesión</h2>
+        <form id="login-form-element">
+          <label for="username">Usuario:</label>
+          <input type="text" id="username" placeholder="Ingresa tu usuario" required>
+          <label for="password">Contraseña:</label>
+          <input type="password" id="password" placeholder="Ingresa tu contraseña" required>
+          <button type="submit">Iniciar Sesión</button>
+        </form>
+        <p>No tienes una cuenta? <a href="#" id="go-to-register">Regístrate aquí</a></p>
+        <p id="login-error-message" class="hidden">Usuario o contraseña incorrectos</p>
+      </div>
+
+      <!-- Formulario de Registro -->
+      <div id="register-form" class="form-container hidden">
+        <h2>Crear Cuenta</h2>
+        <form id="register-form-element">
+          <label for="register-username">Usuario:</label>
+          <input type="text" id="register-username" placeholder="Crea un usuario" required>
+          <label for="register-password">Contraseña:</label>
+          <input type="password" id="register-password" placeholder="Crea una contraseña" required>
+          <button type="submit">Registrarse</button>
+        </form>
+        <p>Ya tienes una cuenta? <a href="#" id="go-to-login">Inicia sesión aquí</a></p>
+        <p id="register-error-message" class="hidden">Error al crear la cuenta</p>
+      </div>
+    </div>
+  </div>
+
+  
 
   <script src="script.js"></script>
 </body>
