@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- nav principal -->
   <nav class="navbar">
     <div>
       <img class="logo" src="images/f1 logo.png" alt="f1">
@@ -18,23 +19,24 @@
       <li><a href="#contact"><img class="cart-logo" src="images/Carrito.png" alt="Carrito"></a></li>
     </ul>
     
+    <!-- menu hamburguesa -->
     <div class="kebab-menu">
       <span></span>
       <span></span>
       <span></span>
     </div>
   </nav>
-  
   <div class="full-screen-menu">
     <button class="close-btn">&times;</button>
     <ul class="menu-links">
       <li><a href="#home">Inicio</a></li>
       <li><a href="#about">Acerca</a></li>
       <li><a href="#services">Servicios</a></li>
-      <li><a href="#contact"><img class="cart-logo" src="images/Carrito.png" alt="Carrito"></a></li>
+      <li><a href="#contact">Contacto</a></li>
     </ul>
   </div>
 
+  <!-- banner principal -->
   <div class="hero-slider">
     <div class="slider-container">
       <div class="slide active" style="background-image: url('images/banner1.jpeg');"></div>
@@ -50,49 +52,91 @@
       <span class="dot" data-index="2"></span>
     </div>
   </div>
-  
+
+
+  <!-- Productos -->
   <section id="productos" class="productos">
-    <h2>Nuestros Productos</h2>
+    <h2>Chombas</h2>
     <div class="productos-grid">
       <div class="tarjeta-producto">
-        <img src="images/producto1.jpg" alt="Producto 1">
+        <div class="imagen-producto">
+          <img src="Productos/camisetas/chombawilliams1.jpeg" alt="Producto 1 vista 1" class="imagen-principal"> 
+          <img src="Productos/camisetas/chombawilliams2.jpeg" alt="Producto 1 vista 2" class="imagen-hover"> 
+        </div>
         <div class="detalle-producto">
-          <h3>Producto 1</h3>
+          <h3>Chomba Williams</h3>
           <p>Descripción breve del producto 1.</p>
-          <p class="precio">$20.00</p>
+          <p class="precio">$30.000,00</p>
           <button class="btn-agregar-carrito">Añadir al Carrito</button>
         </div>
       </div>
       <div class="tarjeta-producto">
-        <img src="images/polera-e7700e3a8ba4a9a62517320793474532-1024-1024.webp" alt="Producto 2">
+        <div class="imagen-producto">
+          <img src="Productos/camisetas/chombarb1.jpeg" alt="Producto 1 vista 1" class="imagen-principal"> 
+          <img src="Productos/camisetas/chombarb1.2.jpeg" alt="Producto 1 vista 2" class="imagen-hover"> 
+        </div>
         <div class="detalle-producto">
-          <h3>Producto 2</h3>
+          <h3>Chomba Red Bull</h3>
           <p>Descripción breve del producto 2.</p>
-          <p class="precio">$25.00</p>
+          <p class="precio">$30.000,00</p>
           <button class="btn-agregar-carrito">Añadir al Carrito</button>
         </div>
       </div>
       <div class="tarjeta-producto">
-        <img src="images/20230828_165805-copia-ed0ad5f4ff48491d7817309013765230-1024-1024.webp" alt="Producto 3">
+        <div class="imagen-producto">
+          <img src="Productos/camisetas/chomba mercedes1.jpeg" alt="Producto 1 vista 1" class="imagen-principal"> 
+          <img src="Productos/camisetas/chomba mercedes2.jpeg" alt="Producto 1 vista 2" class="imagen-hover"> 
+        </div>
         <div class="detalle-producto">
-          <h3>Producto 3</h3>
+          <h3>Chomba Mercedes</h3>
           <p>Descripción breve del producto 3.</p>
-          <p class="precio">$30.00</p>
+          <p class="precio">$30.000,00</p>
           <button class="btn-agregar-carrito">Añadir al Carrito</button>
         </div>
       </div>
       <div class="tarjeta-producto">
-        <img src="images/producto3.jpg" alt="Producto 3">
+        <div class="imagen-producto">
+          <img src="Productos/camisetas/chomba mclaren1.jpeg" alt="Producto 1 vista 1" class="imagen-principal"> 
+          <img src="Productos/camisetas/chomba mclaren1.2.jpeg" alt="Producto 1 vista 2" class="imagen-hover"> 
+        </div>
         <div class="detalle-producto">
-          <h3>Producto 3</h3>
+          <h3>Chomba Mclaren</h3>
           <p>Descripción breve del producto 3.</p>
-          <p class="precio">$30.00</p>
+          <p class="precio">$30.000,00</p>
           <button class="btn-agregar-carrito">Añadir al Carrito</button>
         </div>
       </div>
-      <!-- Repite las tarjetas de productos según sea necesario -->
     </div>
   </section>
+
+  
+  <div class="banner-container">
+    <div class="banner-wrapper">
+      <div class="banner-content">
+        ¡Oferta Especial Por Navidad! 50% de descuento en todos los productos de la escuderia Wiliams. ¡Solo por Esta Semana!
+      </div>
+      <div class="banner-content">
+        ¡Oferta Especial Por Navidad! 50% de descuento en todos los productos de la escuderia Wiliams. ¡Solo por Esta Semana!
+      </div>
+      <div class="banner-content">
+        ¡Oferta Especial Por Navidad! 50% de descuento en todos los productos de la escuderia Wiliams. ¡Solo por Esta Semana!
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="secciones">
+    <div class="tarjeta" data-producto="remeras" onclick="redirectToProduct('chombas')">
+      <h2>Remeras</h2>
+    </div>
+    <div class="tarjeta" data-producto="poleras">
+      <h2>Poleras</h2>
+    </div>
+  </div>
+
+
+  
+
   
   <section id="productos" class="productos">
     <div class="productos-grid">
@@ -132,49 +176,7 @@
           <button class="btn-agregar-carrito">Añadir al Carrito</button>
         </div>
       </div>
-      <!-- Repite las tarjetas de productos según sea necesario -->
-    </div>
-  </section>
-  <script src="script.js"></script>
-  <section id="productos" class="productos">
-    <div class="productos-grid">
-      <div class="tarjeta-producto">
-        <img src="images/producto1.jpg" alt="Producto 1">
-        <div class="detalle-producto">
-          <h3>Producto 1</h3>
-          <p>Descripción breve del producto 1.</p>
-          <p class="precio">$20.00</p>
-          <button class="btn-agregar-carrito">Añadir al Carrito</button>
-        </div>
-      </div>
-      <div class="tarjeta-producto">
-        <img src="images/producto2.jpg" alt="Producto 2">
-        <div class="detalle-producto">
-          <h3>Producto 2</h3>
-          <p>Descripción breve del producto 2.</p>
-          <p class="precio">$25.00</p>
-          <button class="btn-agregar-carrito">Añadir al Carrito</button>
-        </div>
-      </div>
-      <div class="tarjeta-producto">
-        <img src="images/producto3.jpg" alt="Producto 3">
-        <div class="detalle-producto">
-          <h3>Producto 3</h3>
-          <p>Descripción breve del producto 3.</p>
-          <p class="precio">$30.00</p>
-          <button class="btn-agregar-carrito">Añadir al Carrito</button>
-        </div>
-      </div>
-      <div class="tarjeta-producto">
-        <img src="images/producto3.jpg" alt="Producto 3">
-        <div class="detalle-producto">
-          <h3>Producto 3</h3>
-          <p>Descripción breve del producto 3.</p>
-          <p class="precio">$30.00</p>
-          <button class="btn-agregar-carrito">Añadir al Carrito</button>
-        </div>
-      </div>
-      <!-- Repite las tarjetas de productos según sea necesario -->
+     
     </div>
   </section>
 
@@ -214,6 +216,7 @@
       <p>&copy; 2024 Tienda. Todos los derechos reservados.</p>
     </div>
   </footer>
-  
+
+  <script src="script.js"></script>
 </body>
 </html>

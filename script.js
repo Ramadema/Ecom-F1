@@ -132,3 +132,10 @@ function updateSlides() {
 // Llama a la función en carga y al cambiar el tamaño de la ventana
 window.addEventListener('resize', updateSlides);
 updateSlides();
+
+
+function redirectToProduct(producto) {
+  // Aquí puedes personalizar la URL según tus necesidades
+  const url = `chombas.html`; // Reemplaza 'chombas.html' con la URL deseada
+  window.location.href = url;
+}
