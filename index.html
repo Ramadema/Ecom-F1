@@ -43,9 +43,9 @@
   <!-- banner principal -->
   <div class="hero-slider">
     <div class="slider-container">
-      <div class="slide active" style="background-image: url('images/banner1.jpeg');"></div>
-      <div class="slide" style="background-image: url('images/banner2.jpeg');"></div>
-      <div class="slide" style="background-image: url('images/banner3.jpeg');"></div>
+      <div class="slide active" style="background-image: url('images/banner1.png.jpg');"></div>
+      <div class="slide" style="background-image: url('images/banner2.png');"></div>
+      <div class="slide" style="background-image: url('images/banner3.png');"></div>
 
     </div>
     <button class="nav-btn prev-btn">&lt;</button>
@@ -75,7 +75,7 @@
 
   <!-- Productos -->
   <section id="productos" class="productos">
-    <h2>Chombas</h2>
+    <h2>Productos Destacados</h2>
     <div class="productos-grid">
       <div class="tarjeta-producto">
         <div class="imagen-producto">
@@ -145,13 +145,21 @@
   
 
   <div class="secciones">
-    <div class="tarjeta" data-producto="remeras" onclick="redirectToProduct('chombas')">
-      <h2>Remeras</h2>
+    <div class="tarjeta" data-producto="chombas" onclick="redirectToProduct(this)">
+      <img src="images/uUW8WplHz_1290x760__3.jpg" alt="Chombas" />
     </div>
-    <div class="tarjeta" data-producto="poleras">
-      <h2>Poleras</h2>
+    <div class="tarjeta" data-producto="camisetas" onclick="redirectToProduct(this)">
+      <img src="images/remeraSeccion.webp" alt="Camisetas" />
+    </div>
+    <div class="tarjeta" data-producto="camperas" onclick="redirectToProduct(this)">
+      <img src="images/CamperaSeccion.webp" alt="Camperas" />
+    </div>
+    <div class="tarjeta" data-producto="poleras" onclick="redirectToProduct(this)">
+      <img src="images/poleraSeccion.jpg" alt="Poleras" />
     </div>
   </div>
+  
+
   
   <section id="productos" class="productos">
     <div class="productos-grid">
@@ -202,20 +210,19 @@
         <p>Somos una tienda dedicada a ofrecer productos de calidad. ¡Gracias por visitarnos!</p>
       </div>
       <div class="footer-section">
-        <h3>Enlaces Rápidos</h3>
+        <h3>Contáctanos</h3>
         <ul>
-          <li><a href="#home">Inicio</a></li>
-          <li><a href="#about">Login</a></li>
-          <li><a href="#services">Menú</a></li>
-          <li><a href="#contact">Carrito</a></li>
+          <li>Email: f1racingTienda@gmail.com</li>
+          <li>Teléfono: +123 456 7890</li>
+          <li>Dirección: UADE, Lima 757</li>
         </ul>
       </div>
       <div class="footer-section">
-        <h3>Contáctanos</h3>
+        <h3>Ofertas Semanales</h3>
         <ul>
-          <li>Email: contacto@tienda.com</li>
-          <li>Teléfono: +123 456 7890</li>
-          <li>Dirección: Calle Principal 123</li>
+          <li>Dias de lunes a jueves hasta 30% OFF</li>
+          <li>Viernes de practicas GP 40% OFF en camisetas</li>
+          <li>Domingos de carreras hasta un 50% OFF</li>
         </ul>
       </div>
       <div class="footer-section">

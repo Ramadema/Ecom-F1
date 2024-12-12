@@ -189,13 +189,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Función para cambiar las imágenes según el tamaño de la pantalla
   function updateSlides() {
     if (window.innerWidth <= 768) {
-      slides[0].style.backgroundImage = "url('images/banner3.jpeg')";
-      slides[1].style.backgroundImage = "url('images/banner3.jpeg')";
-      slides[2].style.backgroundImage = "url('images/banner3.jpeg')";
-    } else {
-      slides[0].style.backgroundImage = "url('images/banner1.jpeg')";
+      slides[0].style.backgroundImage = "url('images/banner cel1.png')";
       slides[1].style.backgroundImage = "url('images/banner2.jpeg')";
       slides[2].style.backgroundImage = "url('images/banner3.jpeg')";
+    } else {
+      slides[0].style.backgroundImage = "url('images/banner1.png.jpg')";
+      slides[1].style.backgroundImage = "url('images/banner2.png')";
+      slides[2].style.backgroundImage = "url('images/banner3.png')";
     }
   }
 
@@ -204,12 +204,20 @@ document.addEventListener('DOMContentLoaded', () => {
   updateSlides();
 
 
-  function redirectToProduct(producto) {
-    // Aquí puedes personalizar la URL según tus necesidades
-    const url = `chombas.html`; // Reemplaza 'chombas.html' con la URL deseada
-    window.location.href = url;
-  }
 });
+
+
+// Redireccion de secciones
+
+function redirectToProduct(element) {
+  // Obtiene el valor del atributo data-producto
+  const producto = element.getAttribute('data-producto');
+  // Construye la URL según el producto
+  const url = `${producto}.html`;
+  // Redirige a la URL construida
+  window.location.href = url;
+}
+
 
 document.getElementById('search-bar').addEventListener('input', function() { // Barra de busqueda
   var filter = this.value.toLowerCase();
