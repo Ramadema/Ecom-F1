@@ -25,9 +25,22 @@ h2 {
   letter-spacing: 1.5px; /* Espaciado entre letras */
 }
 
+/* banner promo */
+.banner_promo{
+  background-image: url('images/Sin título-1-Recuperado.png'); /* Imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  margin-top: 30px;
+  height: 300px; /* Ajusta la altura del banner */
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  display: flex; /* Usa flexbox para alinear los elementos */
+  align-items: center; /* Centra el contenido verticalmente */
+  justify-content: space-between; /* Coloca el texto a la izquierda y la imagen a la derecha */
+  padding: 0 20px; /* Agrega algo de espaciado horizontal */
+}
+
 
 /* banner wiliams */
-/* Banner wiliams */
 .banner_williams {
   background-image: url('images/fondo wiliams copy.jpg'); /* Imagen de fondo */
   background-size: cover;
@@ -39,6 +52,7 @@ h2 {
   justify-content: space-between; /* Coloca el texto a la izquierda y la imagen a la derecha */
   padding: 0 20px; /* Agrega algo de espaciado horizontal */
 }
+
 
 .bannerWil-content {
   display: flex;
@@ -74,6 +88,10 @@ h2 {
   .bannerWil-text {
     max-width: 90%; /* Ajusta el ancho del texto para pantallas pequeñas */
     margin-top: 20px; /* Da algo de espacio en la parte superior */
+  }
+
+  .banner_promo {
+    display: none; /* Oculta el banner.promo en pantallas pequeñas */
   }
 }
 
